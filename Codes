@@ -8,3 +8,17 @@ while True:
     sleep(1)
     buzzer.off()
     sleep(1)
+   
+## Motion Sensor
+import RPi.GPIO as GPIO
+import time
+
+sensor = 11 ##Idle will take your sensor value as GPIO value. 11 is your GPIO no not your pin number
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(sensor, GPIO.IN)
+
+while True:
+    if GPIO.input(sensor):
+        print ("motion detected")
+        time.sleep(2)
+    time.sleep(0.1)
