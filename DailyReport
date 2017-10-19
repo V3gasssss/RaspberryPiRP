@@ -16,3 +16,6 @@
 # Day 2,
 
 ##### piezo buzzer (http://www.linuxcircle.com/2015/04/12/how-to-play-piezo-buzzer-tunes-on-raspberry-pi-gpio-with-pwm/)
+
+### to connect raspberry pi using ssh 
+##### ssh pi@<ip address> (in terminal)
