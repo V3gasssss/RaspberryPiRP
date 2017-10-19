@@ -50,24 +50,29 @@ while True:
 
 import RPi.GPIO as GPIO
 import time
+import picamera
+from datetime import datetime
 
+picam = picamera.PiCamera()
 sensor = 4
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(sensor, GPIO.IN)
 previous_state = False
 current_state = False
 #while True:
-#	if GPIO.input(sensor):
-#		print('Motion Detected!')
-#		time.sleep(0.5)
-#	time.sleep(0.1)
+#       if GPIO.input(sensor):
+#               print('Motion Detected!')
+#               time.sleep(0.5)
+#       time.sleep(0.1)
 while True:
-	time.sleep(1)
-	previous_state = current_state
-	current_state = GPIO.input(sensor)
-	print (current_state)
-	if current_state != previous_state:
-		if current_state:
-			print("Motion Detected")
+        time.sleep(1)
+        previous_state = current_state
+        current_state = GPIO.input(sensor)
+        #print (current_state)
+        if current_state != previous_state:
+                if current_state:
+                        print('Motion Detected')
+                        currentDate = datetime.now().strftime('%b%d%H%M%S')
+                        picam.capture('/home/pi/picamimages/%s.jpg' % currentDate)
 
 ##abc.py
